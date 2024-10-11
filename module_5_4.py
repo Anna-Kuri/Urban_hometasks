@@ -3,6 +3,7 @@ class House:
 
     def __new__(cls, *args, **kwargs):
         cls.houses_history.append(args[0])
+        return object.__new__(cls)
 
     def __init__(self, name, number_of_floors):
         self.name = name
@@ -60,14 +61,14 @@ class House:
         return self.__add__(value)
 
 
-h1 = House('Elbrus Resontial House', 10)
+h1 = House('ЖК Эльбрус', 10)
 print(House.houses_history)
-h2 = House('Acacia', 20)
+h2 = House('ЖК Акация', 20)
 print(House.houses_history)
-h3 = House('ZhK Matryoshka', 20)
+h3 = House('ЖК Матрёшки', 20)
 print(House.houses_history)
 
-# Deleting objects
+# Удаление объектов
 del h2
 del h3
 
